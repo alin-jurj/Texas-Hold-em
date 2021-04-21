@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "org.example.BetController">
+   <children>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="147.0" prefHeight="57.0" prefWidth="409.0" style="-fx-background-color: white;" text="Bet">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+      <TextField layoutX="46.0" layoutY="61.0" prefHeight="57.0" prefWidth="409.0" promptText="Introduce the amount you want to bet" />
+      <Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" layoutX="46.0" layoutY="224.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="409.0" style="-fx-background-color: white;" text="Cancel">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+   </children>
+</AnchorPane>
