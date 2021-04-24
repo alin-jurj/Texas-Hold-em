@@ -15,12 +15,15 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-
+    private static Stage stg;
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {
+        stg=primaryStage;
         scene = new Scene(loadFXML("LogIn"));
-        stage.setScene(scene);
-        stage.show();
+        primaryStage.setResizable(false);
+        primaryStage.setTitle("Texas Hold'em");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -33,10 +36,14 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
+    public void changeScene(String fxml) throws IOException{
+        Parent pane=FXMLLoader.load(getClass().getResource(fxml));
+        stg.getScene().setRoot(pane);
+    }
 
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }
