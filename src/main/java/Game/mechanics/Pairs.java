@@ -11,13 +11,13 @@ public class Pairs {
 
     public Pairs(){}
 
-    public void addCard(Card card, int i){
+    public void addCard(Card card, int i){ //pentru a adauga cartile de pe masa si din mana fiecarui player pe rand si evaluarii dupa
         hand[i] = card;
     }
 
-    public Card getCard(int i){
+    /*public Card getCard(int i){
         return hand[i];
-    }
+    }*/
 
     public void addRanks(){
         int i;
@@ -80,10 +80,12 @@ public class Pairs {
                 || (suits[2].equals(suits[3]) && suits[3].equals(suits[4]) && suits[4].equals(suits[5]) && suits[5].equals(suits[6]))){
 
             for(i = 0; i<6; i++){
-                if(ranks[i+1] - ranks[i] == 1 || ranks[0] - ranks[6] == -12){
+                if(ranks[i+1] - ranks[i] == 1 )
                     cnt1++;
-                }
+                else if(ranks[i+1] - ranks[i] != 1 && cnt1 < 4) cnt1 = 0;
             }
+
+            if(ranks[0] - ranks[6] == -12) cnt1++;
 
             if(cnt1 >= 4){
 
@@ -159,9 +161,12 @@ public class Pairs {
         int i;
         int cnt = 0;
         for(i = 0; i<6; i++){
-            if(ranks[i+1] - ranks[i] == 1 || ranks[0] - ranks[6] == -12)
+            if(ranks[i+1] - ranks[i] == 1)
                 cnt++;
+            else if(ranks[i+1] - ranks[i] != 1 && cnt < 4) cnt = 0;
         }
+
+        if(ranks[0] - ranks[6] == -12) cnt++;
 
         if(cnt >=4)
             return "Straight";
@@ -186,7 +191,7 @@ public class Pairs {
                 cnt++;
         }
 
-        if(cnt == 2)
+        if(cnt >= 2)
             return "Two pair";
         else return null;
     }
@@ -237,5 +242,7 @@ public class Pairs {
 
         return rezultat;
     }
+
+
 
 }

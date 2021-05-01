@@ -15,7 +15,7 @@
    <children>
       <ImageView fitHeight="469.0" fitWidth="639.0" layoutX="-4.0" layoutY="-26.0">
          <image>
-            <Image url="file:/C:/Texas-Hold-em/src/main/img/Loginimage.png" />
+            <Image url="@file:/C:/Users/zkato/IdeaProjects/Texas-Hold-em/src/main/resources/img/Loginimage.png" />
          </image>
       </ImageView>
       <TextField fx:id="username" layoutX="356.0" layoutY="208.0" promptText="Username" />
