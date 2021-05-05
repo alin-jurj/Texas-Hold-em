@@ -25,6 +25,11 @@ public class Match {
     public Card tableCard(int i){
         return table[i];
     }
+    public void resetTable(){
+        for(int i = 0; i<5; i++){
+            table[i] = null;
+        }
+    }
 
     public void fourthCard(){
         table[3] = deck.giveCard();

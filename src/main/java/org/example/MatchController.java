@@ -61,10 +61,33 @@ public class MatchController {
     private ImageView blindme;
     @FXML
     private ImageView blindop;
+    @FXML
+    private ImageView bimg;
 
     private static Parent loadFXML(String fxml) throws IOException {  //pentru alertbox
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
+    }
+
+    @FXML
+    public void initialize(){
+        img = new Image(getClass().getResourceAsStream("/img/MatchBCKG.jpg"));
+        bimg.setImage(img);
+
+        img = new Image(getClass().getResourceAsStream("/img/CardBCKG.png"));
+        my1.setImage(img);
+        my2.setImage(img);
+        table1.setImage(img);
+        table2.setImage(img);
+        table3.setImage(img);
+        table4.setImage(img);
+        table5.setImage(img);
+        op1.setImage(img);
+        op2.setImage(img);
+
+        img = new Image(getClass().getResourceAsStream("/img/StartButton.png"));
+        toStart.setImage(img);
+
     }
 
     public void displayAlertBox(String title) throws IOException { //tot pentru alertbox
@@ -102,7 +125,7 @@ public class MatchController {
     private Player bot = new Player();
     private Match match = new Match(player, bot);
     private int raiseMoney; //pentru a tine minte rezultatul returnat din alertbox TextField
-    private boolean check = false,bet = false, raise = false, fold = false, allin = false;
+    private boolean check = false,bet = false, raise = false, fold = true, allin = false;
 
     private Image img; //pentru setarea imaginilor
 
@@ -173,24 +196,34 @@ public class MatchController {
        player.setBlind(false);
    }
 
+   public void resetCards(){
+       match.resetTable();
+       player.setHand(null, null);
+       bot.setHand(null, null);
+   }
+
+   public void resetPairs(){
+       player.setPlayerPair(null);
+       bot.setPlayerPair(null);
+   }
+
     public void setMoneyLabel(String s){
         bani.setText(s);
     } //ne arata cati bani mai avem
 
 
-    public void Check(){
-       check = true;
-       player.check();
-        bot.check();
+    public synchronized void Check(){
+        notifyAll();
     }
 
-    public void Bet(int amount){
-        player.betMoney(amount);
-        bot.betMoney(amount);
-        match.setPot((match.getPot() + amount*2));
+    public synchronized void Bet(){
+        player.betMoney(30);
+        bot.betMoney(30);
+        match.setPot((match.getPot() + 30*2));
+        notifyAll();
     }
 
-    public void Raise(int amount){
+    public void toRaise(int amount){
         player.raiseMoney(amount);
         bot.raiseMoney(amount);
         match.setPot((match.getPot() + amount*2));
@@ -206,43 +239,88 @@ public class MatchController {
         }
     }
 
+    public synchronized void Raise(){
+       toRaise(500);
+       notifyAll();
+    }
 
-    public void Fold(){
+
+    public synchronized void Fold(){
         player.fold();
         bot.setEntryMoney(match.getPot());
         match.setPot(0);
+        System.out.println("S-a dat fold!");
+        notifyAll();
     }
 
     /*public void Allin(int amount){}*/
 
+    public synchronized void Game() throws InterruptedException {
+        int cnt = 0;
 
-    public void start() throws IOException {
+        while(cnt < 5) {
+
+            playersCards();
+
+            if (match.tableCard(0) == null) {
+                wait();
+            }
+
+            threeCards();
+
+            if (match.tableCard(3) == null) {
+                wait();
+            }
+
+            fourthCard();
+
+            if (match.tableCard(4) == null) {
+                wait();
+            }
+
+            fifthCard();
+
+            if (player.getPlayerPair() == null) {
+                wait();
+            }
+
+            chooseWinner();
+
+            wait(10000);
+            resetCards();
+            resetImages();
+            resetPairs();
+            cnt++;
+        }
+    }
+
+    public void start() throws IOException, InterruptedException {
 
        player.setEntryMoney(500);
        bot.setEntryMoney(500);
        int blindAmount = (5*500)/100;
-       int cnt = 0;
        toStart.setVisible(false);
        slabel.setVisible(false);
        player.setBlind(true);
        Check.setVisible(true);
        butonVizibil(Check);
-        butonVizibil(Raise);
-        butonVizibil(Bet);
-        butonVizibil(Allin);
-        butonVizibil(Fold);
-
-        playersCards();
-       //cazul big blind si cazul small blind
-        threeCards();
-        //asteapta buton si vezi apoi
-        fourthCard();
-        //asteapta buton si vezi apoi
-        fifthCard();
-        //asteapta buton si vezi apoi
-        chooseWinner();
-        //resetImages();*/
+       butonVizibil(Raise);
+       butonVizibil(Bet);
+       butonVizibil(Allin);
+       butonVizibil(Fold);
 
 
+        new Thread() {
+
+            @Override
+            public void run() {
+                try {
+                    Game();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }.start();
    }
 }
