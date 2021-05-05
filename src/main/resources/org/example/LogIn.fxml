@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
@@ -13,10 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.LogIn">
    <children>
-      <ImageView fitHeight="469.0" fitWidth="639.0" layoutX="-4.0" layoutY="-26.0">
-         <image>
-            <Image url="@file:/C:/Users/zkato/IdeaProjects/Texas-Hold-em/src/main/resources/img/Loginimage.png" />
-         </image>
+      <ImageView fx:id="bimg" fitHeight="469.0" fitWidth="639.0" layoutX="-4.0" layoutY="-26.0">
       </ImageView>
       <TextField fx:id="username" layoutX="356.0" layoutY="208.0" promptText="Username" />
       <PasswordField fx:id="password" layoutX="356.0" layoutY="251.0" promptText="Password" />
