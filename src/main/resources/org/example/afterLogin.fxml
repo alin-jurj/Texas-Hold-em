@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="635.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AfterLogin">
    <children>
-      <ImageView fx:id="bimg" fitHeight="460.0" fitWidth="685.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bimg" fitHeight="481.0" fitWidth="703.0" layoutX="-18.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
       <Button layoutX="529.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: Blue;" text="Log out" textFill="#f8f7f7" />
       <VBox alignment="CENTER" layoutX="184.0" layoutY="155.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="240.0" prefWidth="134.0">
@@ -26,12 +26,12 @@
                         <Font name="High Tower Text" size="18.0" />
                      </font>
                   </Label>
-                  <ChoiceBox prefHeight="26.0" prefWidth="106.0" />
+                  <ChoiceBox fx:id="entryPlay" prefHeight="26.0" prefWidth="106.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="134.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="PLAY" textFill="#f8f5f5" />
+                  <Button mnemonicParsing="false" onAction="#Playbutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="PLAY" textFill="#f8f5f5" />
                </children>
             </HBox>
          </children>
@@ -47,12 +47,12 @@
                         <Font name="High Tower Text" size="18.0" />
                      </font>
                   </Label>
-                  <ChoiceBox prefHeight="26.0" prefWidth="108.0" />
+                  <ChoiceBox fx:id="entrySpectate" prefHeight="26.0" prefWidth="108.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="134.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="86.0" style="-fx-background-color: BLUE;" text="PLAY" textFill="#f8f7f7" />
+                  <Button mnemonicParsing="false" onAction="#Spectatebutton" prefHeight="29.0" prefWidth="86.0" style="-fx-background-color: BLUE;" text="SPECTATE" textFill="#f8f7f7" />
                </children>
             </HBox>
          </children>
