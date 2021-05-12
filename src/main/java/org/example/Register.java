@@ -1,31 +1,36 @@
 package org.example;
 
+//import com.sun.javafx.charts.Legend;
+import exceptions.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import services.UserService;
 
 import java.io.IOException;
 
 public class Register {
     private Image img;
     @FXML
+    private Text Rolemessege;
+    @FXML
     private Button button_reg;
     @FXML
-    private Label wrongPassword;
+    private Label registrationMessage;
     @FXML
-    private Label emptyFields;
-    @FXML
-    private TextField username;
+    private TextField usernameField;
     @FXML
     private TextField email;
     @FXML
-    private PasswordField password;
+    private PasswordField passwordField;
     @FXML
-    private PasswordField Confirm_password;
+    private PasswordField confirmpasswordField;
+    @FXML
+    private ChoiceBox role;
     @FXML
     private ImageView bimg;
     @FXML
@@ -38,22 +43,51 @@ public class Register {
 
         img= new Image(getClass().getResourceAsStream("/img/logo.png"));
         clk.setImage(img);
+
+        Rolemessege.setText("Select your role");
+        role.getItems().addAll("Player", "Administrator");
     }
-    public void button_Register() throws IOException {
-        App m= new App();
-        if(username.getText().isEmpty()||email.getText().isEmpty()||password.getText().isEmpty()||Confirm_password.getText().isEmpty())
-            emptyFields.setText("Fields cannot be empty");
-        else if (password.getText().toString().equals(Confirm_password.getText().toString())==false) {
-            wrongPassword.setText("Password didn't match.");
-        }
+    @FXML
+    public void handleRegisterAction() {
+        try {
 
-        else if(password.getText().toString().equals(Confirm_password.getText().toString())) {
-            m.changeScene("LogIn.fxml");
+            UserService.addUser(usernameField.getText(), passwordField.getText(),confirmpasswordField.getText(), (String) role.getValue(),email.getText());
+            //System.out.println("Account created successfully");
+            registrationMessage.setTextFill(Color.web("#008000", 0.8));
+            registrationMessage.setText("Account created successfully!");
         }
+        catch (CompleteAllFieldsException e) {
+            //System.out.println("Complete all fields");
+            registrationMessage.setTextFill(Color.web("#ef0808", 0.8));
+            registrationMessage.setText("Please complete all fields");
+        }
+        catch (UsernameAlreadyExistsException e) {
+            //System.out.println("Username already exists!");
+            registrationMessage.setTextFill(Color.web("#ef0808", 0.8));
+            registrationMessage.setText("Username already exists!");
+            registrationMessage.setTextAlignment(TextAlignment.LEFT);
+            registrationMessage.setWrapText(true);
+        }
+        catch (ConfirmPasswordException e) {
+            //System.out.println("Password error!" + passwordField.getText() + " and " + confirmpasswordField.getText());
+            registrationMessage.setTextFill(Color.web("#ef0808", 0.8));
+            registrationMessage.setText("Please enter same password twice!");
+        }
+        catch (UserNameNotLongEnough e) {
+            //System.out.println("Password error!" + passwordField.getText() + " and " + confirmpassword.getText());
+            registrationMessage.setTextFill(Color.web("#ef0808", 0.8));
+            registrationMessage.setText("Username must contain at least 6 characters!");
+        }
+        catch (PasswordNotLongEnough e) {
+            //System.out.println("Password error!" + passwordField.getText() + " and " + confirmpassword.getText());
+            registrationMessage.setTextFill(Color.web("#ef0808", 0.8));
+            registrationMessage.setText("Password must contain at least 6 characters!");
+        }
+    }
 
-       /* emptyFields.setText(" ");
-        wrongPassword.setText(" ");
-        */
+    @FXML
+    public void switchToLogin() throws Exception {
+        App.setRoot("login");
     }
 
 }

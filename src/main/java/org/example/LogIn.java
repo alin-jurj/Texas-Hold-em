@@ -1,13 +1,24 @@
 package org.example;
 
+import exceptions.CompleteLoginDataException;
+import exceptions.ConfirmPasswordException;
+import exceptions.UsernameAlreadyExistsException;
+import exceptions.WrongPasswordException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import services.UserService;
 
 import java.io.IOException;
 
@@ -21,9 +32,9 @@ public class LogIn {
     @FXML
     private Label wrongLogIn;
     @FXML
-    private TextField username;
+    private TextField usernameField;
     @FXML
-    private PasswordField password;
+    private PasswordField passwordField;
     @FXML
     private ImageView bimg;
     
@@ -32,22 +43,48 @@ public class LogIn {
         img= new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
         bimg.setImage(img);
     }
-    public void checkLogin() throws IOException{
-        App m= new App();
-        if(username.getText().toString().equals("admin") && password.getText().toString().equals("123")){
-            wrongLogIn.setText("Succes!");
-            m.changeScene("afterLogin.fxml");
+    @FXML
+    public void handleLogIn() {
+
+        try {
+            if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Player")){
+                wrongLogIn.setTextFill(Color.web("#008000", 0.8));
+                wrongLogIn.setText("You have logged in successfully!");
+
+                App.setRoot("afterLogin");
+
+                //AfterLogin controller=App.getPath().getController();
+                //controller.setHelloMessage("Welcome "+ usernameFieldLogin.getText());
+
+            }
+            else if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Administrator")) {
+                wrongLogIn.setTextFill(Color.web("#008000", 0.8));
+                wrongLogIn.setText("You have logged in successfully!");
+
+                App.setRoot("afterLogin");
+
+                //StudentController controller=Main.getPath().getController();
+                //controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());
+            }
+
+            else {
+                wrongLogIn.setTextFill(Color.web("#ef0c0c", 0.8));
+                wrongLogIn.setText("Wrong username or password. Please try again!");
+            }
+
         }
-        else if(username.getText().isEmpty() && password.getText().isEmpty()){
-                wrongLogIn.setText("Please enter your data.");
+        catch (CompleteLoginDataException e) {
+            wrongLogIn.setTextFill(Color.web("#ef0c0c", 0.8));
+            wrongLogIn.setText("Please complete all log in fields!");
         }
-        else {
-            wrongLogIn.setText("Wrong username or password.");
+        catch (Exception e) {
+            System.out.println("Hm");
+            System.out.println(e.getMessage());
         }
+
+
     }
-    public void userLogIn() throws IOException {
-        checkLogin();
-    }
+    @FXML
     public void userRegister() throws IOException{
         App m= new App();
         m.changeScene("Register.fxml");
