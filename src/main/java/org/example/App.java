@@ -19,7 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         stg=primaryStage;
-        scene = new Scene(loadFXML("Admin"));
+        scene = new Scene(loadFXML("entry"));
         primaryStage.setResizable(false);
         primaryStage.setTitle("Texas Hold'em");
         primaryStage.setScene(scene);
@@ -28,11 +28,6 @@ public class App extends Application {
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
-    }
-
-    public void resizeStage(int width, int height){
-        stg.setWidth(width);
-        stg.setHeight(height);
     }
 
 
