@@ -1034,6 +1034,17 @@ public class MatchController {
         });
 
         player.setTotalMoneyMoney(player.getTotalMoneyMoney() + player.getEntryMoney());
+        if(player.getEntryMoney() == 0){
+            if(player.getWinrate() > 0) {
+                player.setWinrate(-1);
+            }
+        }else{
+            player.setWinrate(1);
+        }
+
+        if(player.getWinrate() >= 10){
+            player.setStatus("VIP");
+        }
 
     }
 
