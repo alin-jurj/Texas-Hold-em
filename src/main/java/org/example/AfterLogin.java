@@ -67,7 +67,7 @@ public class AfterLogin {
     }
     public void getChoice(ChoiceBox<Integer> entry){
         entryAmount1 = entry.getValue();
-        entryAmount2=entry.getValue();
+        entryAmount2 = entry.getValue();
     }
     public void Playbutton() throws IOException
     {

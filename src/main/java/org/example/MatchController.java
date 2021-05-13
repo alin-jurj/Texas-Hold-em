@@ -73,12 +73,11 @@ public class MatchController {
     @FXML
     private AnchorPane scene;
 
-    App m = new App();
     @FXML
     public void initialize() {
         scene.prefWidth(1024);
         scene.prefHeight(768);
-        m.resizeStage(1034, 800);
+        App.resizeStage(1034, 800);
         img = new Image(getClass().getResourceAsStream("/img/MatchBCKG.jpg"));
         bimg.setImage(img);
 

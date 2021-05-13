@@ -14,10 +14,9 @@ public class AdminController {
     @FXML
     private Button close;
 
-    App m = new App();
     @FXML
     public void initialize(){
-        m.resizeStage(700, 500);
+        App.resizeStage(700, 500);
     }
 
     public boolean isInt(String s){

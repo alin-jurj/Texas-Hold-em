@@ -48,7 +48,7 @@ public class Register {
         role.getItems().addAll("Player", "Administrator");
     }
     @FXML
-    public void handleRegisterAction() {
+    public void handleRegisterAction() throws IOException {
         try {
 
             UserService.addUser(usernameField.getText(), passwordField.getText(),confirmpasswordField.getText(), (String) role.getValue(),email.getText());
@@ -83,10 +83,6 @@ public class Register {
             registrationMessage.setTextFill(Color.web("#ef0808", 0.8));
             registrationMessage.setText("Password must contain at least 6 characters!");
         }
-    }
-
-    @FXML
-    public void switchToLogin() throws Exception {
         App.setRoot("login");
     }
 

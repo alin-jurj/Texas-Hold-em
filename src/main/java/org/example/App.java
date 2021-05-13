@@ -6,8 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import services.FileSystemService;
+import services.UserService;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * JavaFX App
@@ -19,12 +23,21 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         stg=primaryStage;
-        scene = new Scene(loadFXML("entry"));
+        scene = new Scene(loadFXML("bet"));
+        initDirectory();
+        UserService.initDatabase();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Texas Hold'em");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    private void initDirectory() {
+        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
+        if (!Files.exists(applicationHomePath))
+            ((Path) applicationHomePath).toFile().mkdirs();
+    }
+
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -39,6 +52,11 @@ public class App extends Application {
     public void changeScene(String fxml) throws IOException{
         Parent pane=FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
+    }
+
+    public static void resizeStage(int w, int h){
+        stg.setHeight(h);
+        stg.setWidth(w);
     }
 
 
