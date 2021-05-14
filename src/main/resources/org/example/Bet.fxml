@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
@@ -7,24 +8,25 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "org.example.BetController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="500.0" style="-fx-background-color: lightgrey;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.BetController">
    <children>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="46.0" layoutY="147.0" prefHeight="57.0" prefWidth="409.0" style="-fx-background-color: white;" text="Bet">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
+      <ImageView fx:id = "betBCKG" fitHeight="350.0" fitWidth="500.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true"> </ImageView>
+      <Button alignment="CENTER" fx:id="cancel" onAction="#close" cancelButton="true" contentDisplay="CENTER" layoutX="56.0" layoutY="234.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="409.0" style="-fx-background-color: white;" text="Cancel">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
-      </Button>
-      <TextField layoutX="46.0" layoutY="61.0" prefHeight="57.0" prefWidth="409.0" promptText="Introduce the amount you want to bet" />
-      <Button alignment="CENTER" cancelButton="true" contentDisplay="CENTER" layoutX="46.0" layoutY="224.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="409.0" style="-fx-background-color: white;" text="Cancel">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
+      </Button>
+      <Button fx:id="bet" onAction="#checkBet" alignment="CENTER" contentDisplay="CENTER" layoutX="56.0" layoutY="157.0" prefHeight="57.0" prefWidth="409.0" style="-fx-background-color: white;" text="Bet">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
       </Button>
+      <TextField fx:id="amount" layoutX="56.0" layoutY="71.0" prefHeight="57.0" prefWidth="409.0" promptText="Introduce the amount you want to bet" />
    </children>
 </AnchorPane>

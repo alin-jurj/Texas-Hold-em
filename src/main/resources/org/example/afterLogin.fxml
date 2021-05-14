@@ -66,7 +66,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="28.0" prefWidth="155.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#Playbutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="DONATE" textFill="#f8f5f5" />
+                  <Button mnemonicParsing="false" onAction="#Donatebutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="DONATE" textFill="#f8f5f5" />
                </children>
             </HBox>
          </children>
