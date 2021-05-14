@@ -1,5 +1,6 @@
 package org.example;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,9 @@ public class AfterLogin {
     @FXML
     private ImageView spectateop;
     @FXML
+    private ImageView donateop;
+
+    @FXML
     private ChoiceBox<Integer> entryPlay = new ChoiceBox<>();
     @FXML
     private ChoiceBox<Integer> entrySpectate = new ChoiceBox<>();
@@ -37,12 +41,13 @@ public class AfterLogin {
         img = new Image(getClass().getResourceAsStream("/img/spectate.png"));
         spectateop.setImage(img);
 
+        img = new Image(getClass().getResourceAsStream("/img/s.png"));
+        donateop.setImage(img);
+
         entrySpectate.setValue(500);
         entryPlay.setValue(500);
         addValues(entryPlay);
         addValues(entrySpectate);
-
-
     }
     public void addValues(ChoiceBox<Integer> entry) {
         entry.getItems().add(500);
@@ -73,8 +78,9 @@ public class AfterLogin {
     public int getEntryPlay(){ return entryAmount1; }
     public void Spectatebutton() throws IOException
     {
-        App m = new App();
         getChoice(entrySpectate);
+
+//        App.changeScene("match.fxml");
         //m.changeScene("match.fxml");
     }
     public int getEntrySpectate(){ return entryAmount2; }

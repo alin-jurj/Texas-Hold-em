@@ -57,5 +57,19 @@
             </HBox>
          </children>
       </VBox>
+      <VBox alignment="CENTER" layoutX="231.0" layoutY="29.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="72.0" prefWidth="186.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="46.0" prefWidth="186.0">
+               <children>
+                  <ImageView fx:id="Donateimage" fitHeight="26.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="28.0" prefWidth="155.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#Playbutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="DONATE" textFill="#f8f5f5" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
