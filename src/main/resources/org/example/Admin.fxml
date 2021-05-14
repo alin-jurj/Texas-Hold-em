@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="688.0" style="-fx-background-color: lightgreen;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.AdminController">
+   <children>
+      <TextField fx:id="username" layoutX="129.0" layoutY="142.0" prefHeight="66.0" prefWidth="431.0" promptText="Introduce the username!" />
+      <TextField fx:id="suma" layoutX="129.0" layoutY="238.0" prefHeight="66.0" prefWidth="431.0" promptText="Introduce the amount to donate!" />
+      <Button fx:id="confirm" layoutX="157.0" layoutY="354.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="166.0" text="Confirm" />
+      <Button fx:id="close" layoutX="368.0" layoutY="354.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="166.0" text="Close" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="204.0" layoutY="37.0" prefHeight="96.0" prefWidth="282.0" text="Administrator">
+         <font>
+            <Font name="Bell MT Bold" size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
