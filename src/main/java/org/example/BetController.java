@@ -59,7 +59,7 @@ public class BetController {
 
     public void close() throws IOException {
         App m = new App();
-        m.changeScene("Spectate.fxml");
+        m.changeScene("afterLogin.fxml");
     }
 
 }

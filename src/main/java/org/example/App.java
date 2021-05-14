@@ -23,7 +23,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         stg=primaryStage;
-        scene = new Scene(loadFXML("bet"));
+        scene = new Scene(loadFXML("match"));
         initDirectory();
         UserService.initDatabase();
         primaryStage.setResizable(false);

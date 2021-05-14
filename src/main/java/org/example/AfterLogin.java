@@ -13,8 +13,8 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 
 public class AfterLogin {
-    public int entryAmount1;
-    public int entryAmount2;
+    private static int entryAmount1;
+    private static int entryAmount2;
     private Image img;
     @FXML
     private Button logout;
@@ -32,6 +32,8 @@ public class AfterLogin {
     @FXML
     private ChoiceBox<Integer> entrySpectate = new ChoiceBox<>();
     public void initialize(){
+        App.resizeStage( 680, 470);
+
         img = new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
         bimg.setImage(img);
 
@@ -41,7 +43,7 @@ public class AfterLogin {
         img = new Image(getClass().getResourceAsStream("/img/spectate.png"));
         spectateop.setImage(img);
 
-        img = new Image(getClass().getResourceAsStream("/img/s.png"));
+        img = new Image(getClass().getResourceAsStream("/img/spectate.png"));
         donateop.setImage(img);
 
         entrySpectate.setValue(500);
