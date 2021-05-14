@@ -1,6 +1,8 @@
 package Game.mechanics;
 
-public class Player {
+import model.User;
+
+public class Player extends User {
     private Card[] playerHand = new Card[2]; //cele 2 carti pe care le are in fiecare tura
     private boolean blind; //daca e "big blind" sau nu la inceputul rundei
     private int totalMoney; //toti banii pe care-i are in cont

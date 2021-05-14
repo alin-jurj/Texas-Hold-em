@@ -40,7 +40,7 @@ public class BetController {
         }
     }
 
-    public void checkBet(){
+    public void checkBet() throws IOException {
         if(amount.getText().isEmpty()){
             amount.setText("Introduceti o suma!");
         }else if(!isInt(amount.getText())){
@@ -48,6 +48,8 @@ public class BetController {
         }else{
             betAmount = Integer.parseInt(amount.getText());
             System.out.println(betAmount);
+            App m = new App();
+            m.changeScene("Spectate.fxml");
         }
     }
 
@@ -57,12 +59,7 @@ public class BetController {
 
     public void close() throws IOException {
         App m = new App();
-        m.changeScene("match.fxml");
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        m.changeScene("Spectate.fxml");
     }
 
 }

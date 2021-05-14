@@ -9,13 +9,20 @@ public class User {
     private String role;
     private String email;
 
-    public User(String usernameField, String passwordField, String confirmpasswordField,String role, String email) {
+    private int money;
+    private int winrate;
+    private String status;
+
+    public User(String usernameField, String passwordField, String confirmpasswordField,String role, String email, int money, int winrate, String status) {
         this.usernameField = usernameField;
         this.passwordField = passwordField;
         this.confirmpasswordField = confirmpasswordField;
         this.role=role;
         this.email = email;
 
+        this.money = money;
+        this.winrate = winrate;
+        this.status = status;
     }
     public User() {
     }
