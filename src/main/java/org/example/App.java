@@ -12,7 +12,6 @@ import services.UserService;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Objects;
 
 /**
  * JavaFX App
@@ -21,26 +20,24 @@ public class App extends Application {
 
     private static Scene scene;
     private static Stage stg;
-    private static FXMLLoader path;
-
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
-    }
     @Override
     public void start(Stage primaryStage) throws IOException {
         stg=primaryStage;
-        scene = new Scene(loadFXML("LogIn"));
-         initDirectory();
-         UserService.initDatabase();
-
-        primaryStage.centerOnScreen();
+        scene = new Scene(loadFXML("bet"));
+        initDirectory();
+        UserService.initDatabase();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Texas Hold'em");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
+    private void initDirectory() {
+        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
+        if (!Files.exists(applicationHomePath))
+            ((Path) applicationHomePath).toFile().mkdirs();
+    }
+
 
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -52,13 +49,16 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void changeScene(String fxml) throws IOException{
-        Parent pane=FXMLLoader.load(Objects.requireNonNull(App.class.getResource(fxml)));
+    public void changeScene(String fxml) throws IOException{
+        Parent pane=FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
     }
-    public static FXMLLoader getPath() {
-        return path;
+
+    public static void resizeStage(int w, int h){
+        stg.setHeight(h);
+        stg.setWidth(w);
     }
+
 
     public static void main(String[] args) {
         launch(args);

@@ -45,13 +45,13 @@ public class LogIn {
     }
     @FXML
     public void handleLogIn() {
-
+        App m = new App();
         try {
             if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Player")){
                 wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
 
-                App.setRoot("afterLogin");
+                m.changeScene("afterLogin.fxml");
 
                 //AfterLogin controller=App.getPath().getController();
                 //controller.setHelloMessage("Welcome "+ usernameFieldLogin.getText());
@@ -61,7 +61,7 @@ public class LogIn {
                 wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
 
-                App.setRoot("afterLogin");
+                m.changeScene("afterLogin.fxml");
 
                 //StudentController controller=Main.getPath().getController();
                 //controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());

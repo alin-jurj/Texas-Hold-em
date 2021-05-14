@@ -7,12 +7,25 @@ public class Player {
     private int entryMoney; //banii cu care se joaca in timpul matchului
     private String playerPair; //perechea pe care o are la sfarsitul rundei de ex: Flush
     private String Status;  //VIP sau regular
+    private int winrate;
 
     public Player(){}
 
     public void setHand(Card card1, Card card2){    //seteaza la inceputul rundei cele 2 carti (din Deck)
         playerHand[0] = card1;
         playerHand[1] = card2;
+    }
+
+    public void setWinrate(int i){
+        winrate = winrate + i;
+    }
+
+    public int getWinrate(){
+        return winrate;
+    }
+
+    public void setStatus(String S){
+        Status = S;
     }
 
     public void setEntryMoney(int amount){ entryMoney = amount; }  //seteaza banii cu care intra in match (amount va fi luat din scena entry)

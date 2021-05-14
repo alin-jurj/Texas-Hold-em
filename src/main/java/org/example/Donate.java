@@ -3,7 +3,9 @@ package org.example;
 import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.textfi
+
+import java.awt.*;
+
 public class Donate {
     @FXML
     private ImageView bimg;

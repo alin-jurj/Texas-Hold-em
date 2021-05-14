@@ -40,5 +40,10 @@ public class Deck {
             marked[i] = 1;
             return deck[i];
         }
+
+        public void resetMarked(){
+            for(int i = 0; i<52; i++)
+                marked[i] = 0;
+        }
 }
 
