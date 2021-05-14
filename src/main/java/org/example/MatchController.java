@@ -539,6 +539,7 @@ public class MatchController {
                         match.setPot(match.getPot() + bot.getEntryMoney());
                         setPot(match.getPot());
                         bot.betMoney(bot.getEntryMoney());
+                        player.betMoney(player.getEntryMoney());
                     }
                 } else if (raise == true && ok == 1) { //eu dau raise si botul nu daduse all in
                     player.betMoney(getRaiseMoney());
