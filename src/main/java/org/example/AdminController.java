@@ -2,7 +2,12 @@ package org.example;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.User;
+import services.UserService;
+
+import java.io.IOException;
 
 public class AdminController {
     @FXML
@@ -13,6 +18,8 @@ public class AdminController {
     private Button confirm;
     @FXML
     private Button close;
+    @FXML
+    private Label transaction;
 
     @FXML
     public void initialize(){
@@ -31,13 +38,22 @@ public class AdminController {
 
     public void checkData(){
         if(username.getText().isEmpty()){
-            username.setText("Introduceti un username!");
+            transaction.setText("Introduce a username!");
         }
         if(suma.getText().isEmpty()){
-            suma.setText("Introduceti o suma!");
+            transaction.setText("Introduce a valid value!");
         }
         if(!isInt(suma.getText())){
-            suma.setText("Introduceti un numar intreg!");
+            transaction.setText("Introduce a valid value!");
+        }if(!UserService.checkUserExist(username.getText())){
+            transaction.setText("There is no user with this username!");
+        }else{
+            UserService.giveUserMoney(username.getText(), Integer.parseInt(suma.getText()));
+            transaction.setText("Succesful transaction!");
         }
+    }
+
+    public void Close() throws IOException {
+        App.setRoot("LogIn");
     }
 }

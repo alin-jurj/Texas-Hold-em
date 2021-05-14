@@ -25,6 +25,7 @@ import java.io.IOException;
 public class LogIn {
 
     private Image img;
+    private static String username;
     @FXML
     private Button button_log;
     @FXML
@@ -40,6 +41,7 @@ public class LogIn {
     
     public void initialize()
     {
+        App.resizeStage(650, 480);
         img= new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
         bimg.setImage(img);
     }
@@ -50,7 +52,7 @@ public class LogIn {
             if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Player")){
                 wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
-
+                username = usernameField.getText();
                 m.changeScene("afterLogin.fxml");
 
                 //AfterLogin controller=App.getPath().getController();
@@ -61,7 +63,7 @@ public class LogIn {
                 wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
 
-                m.changeScene("afterLogin.fxml");
+                m.changeScene("Admin.fxml");
 
                 //StudentController controller=Main.getPath().getController();
                 //controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());
@@ -84,6 +86,11 @@ public class LogIn {
 
 
     }
+
+    public String getUsername(){
+        return username;
+    }
+
     @FXML
     public void userRegister() throws IOException{
         App m= new App();

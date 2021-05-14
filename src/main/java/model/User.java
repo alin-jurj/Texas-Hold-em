@@ -74,6 +74,13 @@ public class User {
         this.role = role;
     }
 
+    public int getMoney_db(){
+        return money_db;
+    }
+    public void setMoney_db(int suma){
+        money_db = suma;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

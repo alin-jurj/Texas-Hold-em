@@ -102,5 +102,21 @@ public class UserService {
         return md;
     }
 
+    public static boolean checkUserExist(String s){
+        for(User user : userRepository.find()){
+            if(Objects.equals(s, user.getUsername())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void giveUserMoney(String username, int suma) {
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername())) {
+                user.setMoney_db(suma);
+            }
+        }
+    }
 
 }
