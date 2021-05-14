@@ -47,10 +47,10 @@ public class Player extends User {
         return playerHand[0].toString() + "and" + playerHand[1].toString();
     }*/
 
-    public void setTotalMoneyMoney(int money){  // se ca seta la logare sau cand primeste jucatorul daily reward sau castiga match
+    public void setTotalMoney(int money){  // se ca seta la logare sau cand primeste jucatorul daily reward sau castiga match
         this.totalMoney = money;
     }
-    public int getTotalMoneyMoney(){  // returneaza valoarea pentru a verifica daca poate intra in match sau nu
+    public int getTotalMoney(){  // returneaza valoarea pentru a verifica daca poate intra in match sau nu
         return totalMoney;
     }
 

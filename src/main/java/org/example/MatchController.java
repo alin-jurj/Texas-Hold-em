@@ -11,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import model.User;
+import services.UserService;
 
 import java.io.IOException;
 import java.util.Random;
@@ -1049,24 +1051,24 @@ public class MatchController {
             }
         });
 
-        player.setTotalMoneyMoney(player.getTotalMoneyMoney() + player.getEntryMoney());
+        player.setTotalMoney(player.getTotalMoney() + player.getEntryMoney());
         if(player.getEntryMoney() == 0){
-            if(player.getWinrate() > 0) {
-                player.setWinrate(-1);
+            if(UserService.getWinRate(LogIn.getUsername()) > 0) {
+                UserService.updateWinRate(LogIn.getUsername(),-1);
             }
         }else{
-            player.setWinrate(1);
+            UserService.updateWinRate(LogIn.getUsername(),1);
         }
 
-        if(player.getWinrate() >= 10){
-            player.setStatus("VIP");
+        if(UserService.getWinRate(LogIn.getUsername()) >= 10){
+            UserService.updateUserStatus(LogIn.getUsername(), "VIP");
+        }
+
+        if(player.getEntryMoney() != 0){
+            //UserService.giveUserMoney(LogIn.getUsername(), player.getTotalMoney());
         }
 
     }
-
-
-
-
         public void start() throws IOException, InterruptedException {
 
             player.setEntryMoney(entry.getEntryPlay());

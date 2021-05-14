@@ -119,4 +119,49 @@ public class UserService {
         }
     }
 
+    public static void updateUserStatus(String username, String status){
+        for(User user : userRepository.find()){
+            if(Objects.equals(username, user.getUsername())){
+                user.setStatus_db(status);
+            }
+        }
+    }
+
+    public static void updateWinRate(String username, int i){
+        for(User user : userRepository.find()){
+            if(Objects.equals(username, user.getUsername())){
+                user.setWinrate_db(i);
+            }
+        }
+    }
+
+    public static int getUserMoney(String username){
+        for(User user : userRepository.find()){
+            if(Objects.equals(username,user.getUsername())){
+                return user.getMoney_db();
+            }
+        }
+        return 0;
+    }
+
+    public static int getWinRate(String username){
+        for(User user : userRepository.find()){
+            if(Objects.equals(username,user.getUsername())){
+                return user.getWinrate_db();
+            }
+        }
+        return 0;
+    }
+
+    public static String getStatus(String username){
+        for(User user : userRepository.find()){
+            if(Objects.equals(username,user.getUsername())){
+                return user.getStatus_db();
+            }
+        }
+        return null;
+    }
+
+
+
 }

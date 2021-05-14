@@ -62,7 +62,6 @@ public class LogIn {
             else if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Administrator")) {
                 wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
-
                 m.changeScene("Admin.fxml");
 
                 //StudentController controller=Main.getPath().getController();
@@ -87,7 +86,7 @@ public class LogIn {
 
     }
 
-    public String getUsername(){
+    public static String getUsername(){
         return username;
     }
 
