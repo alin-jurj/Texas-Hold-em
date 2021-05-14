@@ -18,8 +18,10 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <release>11</release>
+                    <executable>/path/to/jdk-12/bin/java</executable>
                 </configuration>
+
+
             </plugin>
             <plugin>
                 <groupId>org.openjfx</groupId>
