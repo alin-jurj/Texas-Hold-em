@@ -73,7 +73,6 @@ public class MatchController {
     @FXML
     private AnchorPane scene;
 
-
     @FXML
     public void initialize() {
         scene.prefWidth(1024);

@@ -3,8 +3,7 @@ package org.example;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
-import java.io.IOException;
+import model.User;
 
 public class AdminController {
     @FXML
@@ -15,11 +14,10 @@ public class AdminController {
     private Button confirm;
     @FXML
     private Button close;
-    private App m=new App();
 
     @FXML
-    public void initialize() throws IOException {
-        m.resizeStage(700, 500);
+    public void initialize(){
+        App.resizeStage(700, 500);
     }
 
     public boolean isInt(String s){
