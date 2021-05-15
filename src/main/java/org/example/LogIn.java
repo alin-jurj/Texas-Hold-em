@@ -37,11 +37,12 @@ public class LogIn {
     private PasswordField passwordField;
     @FXML
     private ImageView bimg;
-    
+
     public void initialize()
     {
         img= new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
         bimg.setImage(img);
+        App.resizeStage(650, 500);
     }
     @FXML
     public void handleLogIn() {

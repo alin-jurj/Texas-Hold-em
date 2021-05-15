@@ -13,8 +13,8 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 
 public class AfterLogin {
-    private static int entryAmount1;
-    private static int entryAmount2;
+    public int entryAmount1;
+    public int entryAmount2;
     private Image img;
     @FXML
     private Button logout;
@@ -32,8 +32,7 @@ public class AfterLogin {
     @FXML
     private ChoiceBox<Integer> entrySpectate = new ChoiceBox<>();
     public void initialize(){
-        App.resizeStage( 680, 470);
-
+        App.resizeStage(700, 480);
         img = new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
         bimg.setImage(img);
 
@@ -43,7 +42,7 @@ public class AfterLogin {
         img = new Image(getClass().getResourceAsStream("/img/spectate.png"));
         spectateop.setImage(img);
 
-        img = new Image(getClass().getResourceAsStream("/img/spectate.png"));
+        img = new Image(getClass().getResourceAsStream("/img/moneydonate.png"));
         donateop.setImage(img);
 
         entrySpectate.setValue(500);
@@ -77,13 +76,18 @@ public class AfterLogin {
         getChoice(entryPlay);
         m.changeScene("match.fxml");
     }
+    @FXML
+    public void Donatebutton() throws  IOException{
+        App m= new App();
+        m.changeScene("Donate.fxml");
+    }
     public int getEntryPlay(){ return entryAmount1; }
     public void Spectatebutton() throws IOException
     {
         getChoice(entrySpectate);
 
-//        App.changeScene("match.fxml");
-        //m.changeScene("match.fxml");
+        App m= new App();
+        m.changeScene("Spectate.fxml");
     }
     public int getEntrySpectate(){ return entryAmount2; }
 }
