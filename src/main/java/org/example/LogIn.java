@@ -23,9 +23,8 @@ import services.UserService;
 import java.io.IOException;
 
 public class LogIn {
-
-    private Image img;
     private static String username;
+    private Image img;
     @FXML
     private Button button_log;
     @FXML
@@ -38,21 +37,25 @@ public class LogIn {
     private PasswordField passwordField;
     @FXML
     private ImageView bimg;
-    
+
     public void initialize()
     {
-        App.resizeStage(650, 480);
         img= new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
         bimg.setImage(img);
+        App.resizeStage(650, 500);
     }
     @FXML
     public void handleLogIn() {
         App m = new App();
         try {
             if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Player")){
-                wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
                 username = usernameField.getText();
+                if(UserService.getStatus(username).equals("VIP")){
+                    UserService.giveUserMoney(username, 10000);
+                }else if(UserService.getStatus(username).equals(username)){
+                    UserService.giveUserMoney(username, 1000);
+                }
                 m.changeScene("afterLogin.fxml");
 
                 //AfterLogin controller=App.getPath().getController();
@@ -62,7 +65,8 @@ public class LogIn {
             else if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Administrator")) {
                 wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
-                m.changeScene("Admin.fxml");
+
+                m.changeScene("afterLogin.fxml");
 
                 //StudentController controller=Main.getPath().getController();
                 //controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());
@@ -85,11 +89,6 @@ public class LogIn {
 
 
     }
-
-    public static String getUsername(){
-        return username;
-    }
-
     @FXML
     public void userRegister() throws IOException{
         App m= new App();

@@ -55,7 +55,7 @@ public class Register {
             //System.out.println("Account created successfully");
             registrationMessage.setTextFill(Color.web("#008000", 0.8));
             registrationMessage.setText("Account created successfully!");
-            App.setRoot("login");
+            App.setRoot("LogIn");
         }
         catch (CompleteAllFieldsException e) {
             //System.out.println("Complete all fields");

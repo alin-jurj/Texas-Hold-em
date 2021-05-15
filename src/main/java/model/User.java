@@ -9,9 +9,9 @@ public class User {
     private String role;
     private String email;
 
-    private int money;
-    private int winrate;
-    private String status;
+    private int money_db;
+    private int winrate_db;
+    private String status_db;
 
     public User(String usernameField, String passwordField, String confirmpasswordField,String role, String email, int money, int winrate, String status) {
         this.usernameField = usernameField;
@@ -20,9 +20,9 @@ public class User {
         this.role=role;
         this.email = email;
 
-        this.money = money;
-        this.winrate = winrate;
-        this.status = status;
+        this.money_db = money;
+        this.winrate_db = winrate;
+        this.status_db = status;
     }
     public User() {
     }

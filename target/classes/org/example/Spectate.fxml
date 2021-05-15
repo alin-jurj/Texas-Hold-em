@@ -1,13 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.Spectate">
    <children>
-      <ImageView fitHeight="429.0" fitWidth="647.0" layoutX="-22.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" />
-      <Label layoutX="45.0" layoutY="64.0" prefHeight="302.0" prefWidth="510.0" text="Label" />
+      <ImageView fx:id="bimg" fitHeight="429.0" fitWidth="647.0" layoutX="-22.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" />
+      <ChoiceBox fx:id="g1" layoutX="387.0" layoutY="85.0" prefHeight="25.0" prefWidth="88.0" />
+      <Text fill="#f8fcf8" layoutX="83.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bot Negreanu(60%) vs Bot Jason Marcier(40%)) " wrappingWidth="310.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Button layoutX="490.0" layoutY="85.0" mnemonicParsing="false" onAction="#Bet1" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: BLUE;" text="BET" textFill="#fffafa" />
+      <Text fill="#f8fcf8" layoutX="83.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bot Tom Dwan(80%) vs Bot Jake Cody(20%)" wrappingWidth="310.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Button layoutX="490.0" layoutY="121.0" mnemonicParsing="false" onAction="#Bet2" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: BLUE;" text="BET" textFill="#fffafa" />
+      <Text fill="#f8fcf8" layoutX="83.0" layoutY="179.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bot Victoria Coren(50%) vs Bot Davidi Kitai(50%)" wrappingWidth="310.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Button layoutX="490.0" layoutY="158.0" mnemonicParsing="false" onAction="#Bet3" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: BLUE;" text="BET" textFill="#f5efef" />
+      <Text fill="#f8fcf8" layoutX="83.0" layoutY="217.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bot Lex Veldhuis(30%) vs Bot Andre Akkari(70%)" wrappingWidth="310.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Button layoutX="490.0" layoutY="196.0" mnemonicParsing="false" onAction="#Bet4" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: BLUE;" text="BET" textFill="#f5eeee" />
+      <Text fill="#f8fcf8" layoutX="83.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bot Dan Murariu(90%) vs Bot Jason Young(10%)" wrappingWidth="310.13671875">
+         <font>
+            <Font size="14.0" />
+         </font></Text>
+      <Button layoutX="490.0" layoutY="237.0" mnemonicParsing="false" onAction="#Bet5" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: BLUE;" text="BET" textFill="#fcf7f7" />
+      <Button layoutX="516.0" layoutY="22.0" mnemonicParsing="false" onAction="#Menu" prefHeight="25.0" prefWidth="52.0" style="-fx-background-color: BLUE;" text="Menu" textFill="#fffafa" />
+      <Label fx:id="moneytxt1" layoutX="238.0" layoutY="17.0" prefHeight="35.0" prefWidth="88.0" textFill="#1beece">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="moneytxt" layoutX="234.0" layoutY="47.0" prefHeight="25.0" prefWidth="132.0" textAlignment="CENTER" textFill="#1beece">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="message" layoutX="89.0" layoutY="72.0" prefHeight="17.0" prefWidth="289.0" textFill="#1beece">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <ChoiceBox fx:id="g2" layoutX="387.0" layoutY="121.0" prefHeight="25.0" prefWidth="88.0" />
+      <ChoiceBox fx:id="g3" layoutX="387.0" layoutY="158.0" prefHeight="25.0" prefWidth="88.0" />
+      <ChoiceBox fx:id="g4" layoutX="387.0" layoutY="196.0" prefHeight="25.0" prefWidth="88.0" />
+      <ChoiceBox fx:id="g5" layoutX="387.0" layoutY="237.0" prefHeight="25.0" prefWidth="88.0" />
    </children>
 </AnchorPane>
