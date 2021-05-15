@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +15,6 @@
       </ImageView>
       <TextField fx:id="usernameField" layoutX="356.0" layoutY="208.0" promptText="Username" />
       <PasswordField fx:id="passwordField" layoutX="356.0" layoutY="251.0" promptText="Password" />
-      <Hyperlink layoutX="401.0" layoutY="404.0" text="Forgot your password?" textFill="#1916c9" />
       <Button fx:id="button_log" layoutX="389.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: blue;" text="Log In" textFill="#f8f5f5" />
       <Button fx:id="button_reg" layoutX="390.0" layoutY="346.0" mnemonicParsing="false" onAction="#userRegister" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: blue;" text="Register" textFill="#f8f7f7" />
       <Ellipse fill="#249424" layoutX="424.0" layoutY="155.0" radiusX="43.0" radiusY="35.0" stroke="#171717" strokeType="INSIDE" />

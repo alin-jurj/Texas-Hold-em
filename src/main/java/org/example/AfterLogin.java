@@ -13,8 +13,8 @@ import javafx.scene.image.ImageView;
 import java.io.IOException;
 
 public class AfterLogin {
-    public int entryAmount1;
-    public int entryAmount2;
+    private static int entryAmount1;
+    private static int entryAmount2;
     private Image img;
     @FXML
     private Button logout;
