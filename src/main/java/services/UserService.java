@@ -33,7 +33,7 @@ public class UserService {
         checkUserDoesNotAlreadyExist(username);
         checkPasswordLength(password, confirmpassword);
         checkConfirmPassword(password, confirmpassword);
-        userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) ,role, email));
+        userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) ,role, email, 100000, 0, "member"));
     }
 
     public static String checkCredentials(String username, String password) throws CompleteLoginDataException {

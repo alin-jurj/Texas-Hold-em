@@ -68,6 +68,8 @@
          </font>
       </Label>
       <Button fx:id="startButton" blendMode="MULTIPLY" layoutX="275.0" layoutY="81.0" onAction="#start" mnemonicParsing="false" opacity="0.0" prefHeight="150.0" prefWidth="156.0" />
+      <ImageView fx:id="endImg" fitHeight="150.0" fitWidth="200.0" layoutX="450.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true"> </ImageView>
+      <Button fx:id="endButton" blendMode="MULTIPLY" layoutX="450.0" layoutY="300.0" onAction="#EndGame" mnemonicParsing="false" opacity="0.0" prefHeight="150.0" prefWidth="156.0" />
       <Label fx:id="winner" layoutX="600.0" layoutY="550.0" prefHeight="48.0" prefWidth="270.0" textFill="#0ee3b8">
          <font>
             <Font size="20.0" />
