@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
+import services.UserService;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -50,6 +51,8 @@ public class Donate {
             if (status == -1) {
                // wrongmessage.setTextFill(Color.web("#008000", 0.8));
                 wrongmessage.setText("Donated");
+                UserService.giveUserMoney(LogIn.getUsername(),Integer.valueOf(amount.getText()));
+                UserService.updateUserStatus(LogIn.getUsername(), "VIP");
                 try {
                     App.setRoot("afterLogin");
                 } catch (IOException e) {

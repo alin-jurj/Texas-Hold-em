@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import services.UserService;
 
 import java.io.IOException;
 import java.util.Random;
@@ -107,6 +108,12 @@ public class Spectate {
     @FXML
     public void Menu() throws IOException {
         App m=new App();
+        if(money<aux && money>0)
+            UserService.giveUserMoney(LogIn.getUsername(),money-aux);
+        if(money<=0)
+            UserService.giveUserMoney(LogIn.getUsername(),-aux);
+        if(money>aux)
+        UserService.giveUserMoney(LogIn.getUsername(),money-aux);
         m.changeScene("afterLogin.fxml");
     }
 }

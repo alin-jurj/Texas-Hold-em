@@ -13,6 +13,16 @@
    <children>
       <ImageView fx:id="bimg" fitHeight="481.0" fitWidth="703.0" layoutX="-18.0" layoutY="-14.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
+      <Label fx:id="money_txt" layoutX="111.0" layoutY="63.0" prefHeight="35.0" prefWidth="92.0" textFill="#1beece">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="money_int" layoutX="103.0" layoutY="98.0" prefHeight="35.0" prefWidth="92.0" textAlignment="CENTER" textFill="#1beece">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
       <Button layoutX="529.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: Blue;" text="Log out" textFill="#f8f7f7" />
       <VBox alignment="CENTER" layoutX="184.0" layoutY="155.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="240.0" prefWidth="134.0">
          <children>

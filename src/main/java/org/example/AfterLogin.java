@@ -7,8 +7,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import services.UserService;
 
 import java.io.IOException;
 
@@ -26,11 +28,16 @@ public class AfterLogin {
     private ImageView spectateop;
     @FXML
     private ImageView donateop;
-
+    @FXML
+    private Label money_txt;
+    @FXML
+    private Label money_int;
     @FXML
     private ChoiceBox<Integer> entryPlay = new ChoiceBox<>();
     @FXML
     private ChoiceBox<Integer> entrySpectate = new ChoiceBox<>();
+    private UserService userr;
+    private static String username;
     public void initialize(){
         App.resizeStage(700, 480);
         img = new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
@@ -49,6 +56,9 @@ public class AfterLogin {
         entryPlay.setValue(500);
         addValues(entryPlay);
         addValues(entrySpectate);
+        username=LogIn.getUsername();
+        money_txt.setText("Money");
+        money_int.setText(String.valueOf(userr.getUserMoney(username)));
     }
     public void addValues(ChoiceBox<Integer> entry) {
         entry.getItems().add(500);

@@ -66,7 +66,7 @@ public class LogIn {
                 wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
 
-                m.changeScene("afterLogin.fxml");
+                m.changeScene("Admin.fxml");
 
                 //StudentController controller=Main.getPath().getController();
                 //controller.setHelloMessage("Welcome "+usernameFieldLogin.getText());

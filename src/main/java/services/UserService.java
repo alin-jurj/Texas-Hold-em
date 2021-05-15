@@ -1,6 +1,7 @@
 package services;
 
 import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectFilter;
 import org.dizitart.no2.objects.ObjectRepository;
 import exceptions.*;
 import exceptions.UserNameNotLongEnough;
@@ -13,6 +14,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
+import static org.dizitart.no2.filters.Filters.eq;
 import static services.FileSystemService.getPathToFile;
 
 public class UserService {
@@ -115,16 +117,19 @@ public class UserService {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())) {
                 user.setMoney(suma);
-                System.out.println("dap");
-                System.out.println(UserService.getUserMoney("alabala"));
+                userRepository.update(user);
+                //System.out.println("dap");
+                //System.out.println(UserService.getUserMoney("alabala"));
             }
         }
+
     }
 
     public static void updateUserStatus(String username, String status){
         for(User user : userRepository.find()){
             if(Objects.equals(username, user.getUsername())){
                 user.setStatus(status);
+                userRepository.update(user);
             }
         }
     }
@@ -133,6 +138,7 @@ public class UserService {
         for(User user : userRepository.find()){
             if(Objects.equals(username, user.getUsername())){
                 user.setWinrate(i);
+                userRepository.update(user);
             }
         }
     }

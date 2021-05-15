@@ -32,10 +32,12 @@ public class User {
         return usernameField;
     }
 
-    public void setUsername(String username)
+    /*public void setUsername(String username)
     {
         this.usernameField = username;
     }
+
+     */
 
     public String getPassword()
     {
@@ -56,6 +58,8 @@ public class User {
     {
         this.confirmpasswordField = confirmpassword;
     }
+
+
     public String getEmail()
     {
         return email;
@@ -65,10 +69,13 @@ public class User {
     {
         this.email = email;
     }
+
+
     public String getRole()
     {
         return role;
     }
+
     public void setRole(String role)
     {
         this.role = role;
@@ -82,6 +89,7 @@ public class User {
         money_db = money_db + suma;
 
     }
+
     public String getStatus_db(){
         return status_db;
     }
@@ -89,6 +97,8 @@ public class User {
     public void setStatus(String status){
         status_db = status;
     }
+
+
     public int getWinrate_db(){
         return winrate_db;
     }
