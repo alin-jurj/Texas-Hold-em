@@ -89,6 +89,9 @@ public class LogIn {
 
 
     }
+    public static String getUsername(){
+        return username;
+    }
     @FXML
     public void userRegister() throws IOException{
         App m= new App();
