@@ -114,7 +114,9 @@ public class UserService {
     public static void giveUserMoney(String username, int suma) {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername())) {
-                user.setMoney_db(suma);
+                user.setMoney(suma);
+                System.out.println("dap");
+                System.out.println(UserService.getUserMoney("alabala"));
             }
         }
     }
@@ -122,7 +124,7 @@ public class UserService {
     public static void updateUserStatus(String username, String status){
         for(User user : userRepository.find()){
             if(Objects.equals(username, user.getUsername())){
-                user.setStatus_db(status);
+                user.setStatus(status);
             }
         }
     }
@@ -130,7 +132,7 @@ public class UserService {
     public static void updateWinRate(String username, int i){
         for(User user : userRepository.find()){
             if(Objects.equals(username, user.getUsername())){
-                user.setWinrate_db(i);
+                user.setWinrate(i);
             }
         }
     }

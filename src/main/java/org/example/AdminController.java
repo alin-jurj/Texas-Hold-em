@@ -49,7 +49,7 @@ public class AdminController {
         }if(!UserService.checkUserExist(username.getText())){
             transaction.setText("There is no user with this username!");
         }else{
-            //UserService.giveUserMoney(username.getText(), Integer.parseInt(suma.getText()));
+            UserService.giveUserMoney(username.getText(), Integer.parseInt(suma.getText()));
             transaction.setText("Succesful transaction!");
         }
     }

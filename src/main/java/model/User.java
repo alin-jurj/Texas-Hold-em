@@ -77,21 +77,23 @@ public class User {
     public int getMoney_db(){
         return money_db;
     }
-    public void setMoney_db(int suma){
-        System.out.println("Set: " + money_db);
+
+    public void setMoney(int suma){
         money_db = money_db + suma;
-        System.out.println(money_db);
+
     }
     public String getStatus_db(){
         return status_db;
     }
-    public void setStatus_db(String status){
+
+    public void setStatus(String status){
         status_db = status;
     }
     public int getWinrate_db(){
         return winrate_db;
     }
-    public void setWinrate_db(int i){
+
+    public void setWinrate(int i){
         winrate_db = winrate_db + i;
     }
 

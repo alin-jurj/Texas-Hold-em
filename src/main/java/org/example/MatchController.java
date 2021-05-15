@@ -1065,7 +1065,8 @@ public class MatchController {
         }
 
         if(player.getEntryMoney() != 0){
-            //UserService.giveUserMoney(LogIn.getUsername(), player.getTotalMoney());
+            UserService.giveUserMoney(LogIn.getUsername(), player.getTotalMoney());
+            System.out.println(UserService.getUserMoney(LogIn.getUsername()));
         }
 
     }
