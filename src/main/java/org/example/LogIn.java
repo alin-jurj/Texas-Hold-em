@@ -23,7 +23,7 @@ import services.UserService;
 import java.io.IOException;
 
 public class LogIn {
-
+    private static String username;
     private Image img;
     @FXML
     private Button button_log;
@@ -49,9 +49,13 @@ public class LogIn {
         App m = new App();
         try {
             if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Player")){
-                wrongLogIn.setTextFill(Color.web("#008000", 0.8));
                 wrongLogIn.setText("You have logged in successfully!");
-
+                username = usernameField.getText();
+                if(UserService.getStatus(username).equals("VIP")){
+                    UserService.giveUserMoney(username, 10000);
+                }else if(UserService.getStatus(username).equals(username)){
+                    UserService.giveUserMoney(username, 1000);
+                }
                 m.changeScene("afterLogin.fxml");
 
                 //AfterLogin controller=App.getPath().getController();

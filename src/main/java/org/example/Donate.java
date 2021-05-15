@@ -71,7 +71,11 @@ public class Donate {
             }
         });
     }
+    @FXML
+    public void back()throws IOException{
 
+        App.setRoot("afterLogin");
+    }
     public int validate() {
         if (!cardNumberRegex.matcher(cardNumber.getText()).matches()) return 0;
         if (!CVCRegex.matcher(CVC.getText()).matches()) return 1;
