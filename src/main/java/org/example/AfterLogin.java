@@ -42,8 +42,8 @@ public class AfterLogin {
         img = new Image(getClass().getResourceAsStream("/img/spectate.png"));
         spectateop.setImage(img);
 
-        //img = new Image(getClass().getResourceAsStream("/img/s.png"));
-        //donateop.setImage(img);
+        img = new Image(getClass().getResourceAsStream("/img/moneydonate.png"));
+        donateop.setImage(img);
 
         entrySpectate.setValue(500);
         entryPlay.setValue(500);
@@ -76,13 +76,18 @@ public class AfterLogin {
         getChoice(entryPlay);
         m.changeScene("match.fxml");
     }
+    @FXML
+    public void Donatebutton() throws  IOException{
+        App m= new App();
+        m.changeScene("Donate.fxml");
+    }
     public int getEntryPlay(){ return entryAmount1; }
     public void Spectatebutton() throws IOException
     {
         getChoice(entrySpectate);
 
-//        App.changeScene("match.fxml");
-        //m.changeScene("match.fxml");
+        App m= new App();
+        m.changeScene("Spectate.fxml");
     }
     public int getEntrySpectate(){ return entryAmount2; }
 }

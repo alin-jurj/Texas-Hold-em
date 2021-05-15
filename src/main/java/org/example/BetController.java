@@ -24,7 +24,7 @@ public class BetController {
     private int betAmount;
 
     @FXML
-    public void initialize(){
+    public void initialize() {
         App.resizeStage(514, 350);
         img = new Image(getClass().getResourceAsStream("/img/betbckg.jpg"));
         betBCKG.setImage(img);
@@ -45,24 +45,16 @@ public class BetController {
             amount.setText("Introduceti o suma!");
         }else if(!isInt(amount.getText())){
             amount.setText("Introduceti un numar intreg!");
-        }else{
+        }
+        else{
             betAmount = Integer.parseInt(amount.getText());
             System.out.println(betAmount);
         }
     }
 
-    public int getBetAmount(){
-        return betAmount;
-    }
-
     public void close() throws IOException {
-        App m = new App();
-        m.changeScene("match.fxml");
-    }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        App.setRoot("afterLogin.fxml");
     }
 
 }
