@@ -8,7 +8,6 @@ org\example\MatchController$2.class
 services\FileSystemService.class
 Game\mechanics\Card.class
 exceptions\UsernameAlreadyExistsException.class
-org\example\BetController.class
 org\example\MatchController$6.class
 Game\mechanics\Match.class
 org\example\MatchController$7.class

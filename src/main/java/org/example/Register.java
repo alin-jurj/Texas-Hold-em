@@ -55,7 +55,7 @@ public class Register {
             //System.out.println("Account created successfully");
             registrationMessage.setTextFill(Color.web("#008000", 0.8));
             registrationMessage.setText("Account created successfully!");
-            App.setRoot("logIn");
+            App.setRoot("LogIn");
         }
         catch (CompleteAllFieldsException e) {
             //System.out.println("Complete all fields");
@@ -84,7 +84,6 @@ public class Register {
             registrationMessage.setTextFill(Color.web("#ef0808", 0.8));
             registrationMessage.setText("Password must contain at least 6 characters!");
         }
-
     }
 
 }

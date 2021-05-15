@@ -72,7 +72,10 @@ public class MatchController {
     private Label cronometru;
     @FXML
     private AnchorPane scene;
-
+    @FXML
+    private Button endButton;
+    @FXML
+    private ImageView endImg;
 
     @FXML
     public void initialize() {
@@ -167,12 +170,13 @@ public class MatchController {
         });
     }
 
+    AfterLogin entry = new AfterLogin();
     private Player player = new Player();
     private Player bot = new Player();
     private Match match = new Match(player, bot);
-    private int raiseMoney;
+    private int raiseMoney = (15 * entry.getEntryPlay())/100;
     private boolean check = false, bet = false, raise = false, fold = true, allin = false;
-    private int blindAmount;
+    private int blindAmount = (10 * entry.getEntryPlay()) / 100;
     private int ok2 = 0;
 
     private Image img; //pentru setarea imaginilor
@@ -367,6 +371,11 @@ public class MatchController {
         }
     }
 
+    public void EndGame() throws IOException {
+        App m = new App();
+        m.changeScene("afterLogin.fxml");
+    }
+
     public synchronized void Game() throws InterruptedException {
         int ok, ok3 = 0;
 
@@ -405,7 +414,7 @@ public class MatchController {
             wait(500);
             playersCards();    //se dau carti la jucatori
 
-            if(player.getEntryMoney() <= 100){
+            if(player.getEntryMoney() <= getRaiseMoney()){
                 butonInvizibil(Raise);
             }
 
@@ -475,7 +484,7 @@ public class MatchController {
                 if(player.getEntryMoney() > bot.getEntryMoney() && ok == 0){
                     butonInvizibil(Allin);
                 }
-                if(player.getEntryMoney() <= 100 || allin == true){
+                if(player.getEntryMoney() <= getRaiseMoney() || allin == true){
                     butonInvizibil(Raise);
                 }
                 butonInvizibil(Check);
@@ -512,11 +521,11 @@ public class MatchController {
                 } else if (allin == true && ok == 1) { //eu dau all in si botul nu daduse
                     match.setPot(match.getPot() + player.getEntryMoney());
                     setPot(match.getPot());
-                    player.betMoney(player.getEntryMoney());
-                    setBani(player.getEntryMoney());
+                    setBani(0);
                     if ((bot.getEntryMoney() + getBlindAmount()) > player.getEntryMoney()) {  //botul da bet
                         bot.setEntryMoney(bot.getEntryMoney() + getBlindAmount());
-                        match.setPot(match.getPot() - 50);
+                        player.betMoney(player.getEntryMoney());
+                        match.setPot(match.getPot() - getBlindAmount());
                         wait(500);
                         setBotaction("Call!");
                         match.setPot(match.getPot() * 2);
@@ -524,28 +533,29 @@ public class MatchController {
                         bot.betMoney(match.getPot() / 2);
                     } else { //botul da si el all in
                         bot.setEntryMoney(bot.getEntryMoney() + getBlindAmount());
-                        match.setPot(match.getPot() - 50);
+                        match.setPot(match.getPot() - getBlindAmount());
                         wait(500);
                         setBotaction("All in!");
                         match.setPot(match.getPot() + bot.getEntryMoney());
                         setPot(match.getPot());
                         bot.betMoney(bot.getEntryMoney());
+                        player.betMoney(player.getEntryMoney());
                     }
                 } else if (raise == true && ok == 1) { //eu dau raise si botul nu daduse all in
-                    player.betMoney(100);
+                    player.betMoney(getRaiseMoney());
                     setBani(player.getEntryMoney());
-                    match.setPot(match.getPot() + 100);
-                    if (bot.getEntryMoney() + getBlindAmount() > 100) { //are bani pentru call
+                    match.setPot(match.getPot() + getRaiseMoney());
+                    if (bot.getEntryMoney() + getBlindAmount() > getRaiseMoney()) { //are bani pentru call
                         bot.setEntryMoney(bot.getEntryMoney() + getBlindAmount());
-                        match.setPot(match.getPot() - 50);
+                        match.setPot(match.getPot() - getBlindAmount());
                         wait(500);
                         setBotaction("Call!");
-                        match.setPot(match.getPot() + 100);
+                        match.setPot(match.getPot() + getRaiseMoney());
                         setPot(match.getPot());
-                        bot.betMoney(100);
+                        bot.betMoney(getRaiseMoney());
                     } else { //da all in
                         bot.setEntryMoney(bot.getEntryMoney() + getBlindAmount());
-                        match.setPot(match.getPot() - 50);
+                        match.setPot(match.getPot() - getBlindAmount());
                         wait(500);
                         setBotaction("All in!");
                         match.setPot(match.getPot() + bot.getEntryMoney());
@@ -598,7 +608,7 @@ public class MatchController {
             resetButtons();
             ok2 = 0;
 
-            if(player.getEntryMoney() <= 100){
+            if(player.getEntryMoney() <= getRaiseMoney()){
                 butonInvizibil(Raise);
             }
 
@@ -619,11 +629,11 @@ public class MatchController {
                     wait(500);
                     continue;
                 } else if (todo == 2) {
-                    botRaise(50);
+                    botRaise((10* entry.getEntryPlay())/100);
                 } else if (todo == 3) {
-                    botRaise(100);
+                    botRaise((15* entry.getEntryPlay())/100);
                 } else if (todo == 4) {
-                    botRaise(150);
+                    botRaise((20* entry.getEntryPlay())/100);
                 }
             }
 
@@ -643,24 +653,24 @@ public class MatchController {
                         wait(1000);
                         setBotaction("Your turn!");
                     } else if (todo == 1) {
-                        botRaise(50);
+                        botRaise((10* entry.getEntryPlay())/100);
                     } else if (todo == 2) {
-                        botRaise(100);
+                        botRaise((15* entry.getEntryPlay())/100);
                     } else if (todo == 3) {
-                        botRaise(150);
+                        botRaise((20* entry.getEntryPlay())/100);
                     }
                 }else if(raise == true) {
-                    player.betMoney(100);
+                    player.betMoney(getRaiseMoney());
                     setBani(player.getEntryMoney());
-                    match.setPot(match.getPot() + 100);
+                    match.setPot(match.getPot() + getRaiseMoney());
                     setPot(match.getPot());
                     butoaneI();
                     todo = rand.nextInt(2);
                     if (todo == 0) {
-                        if(bot.getEntryMoney() > 100) {
+                        if(bot.getEntryMoney() > getRaiseMoney()) {
                             setBotaction("Call!");
-                            bot.betMoney(100);
-                            match.setPot(match.getPot() + 100);
+                            bot.betMoney(getRaiseMoney());
+                            match.setPot(match.getPot() + getRaiseMoney());
                             setPot(match.getPot());
                             wait(1000);
                             setBotaction("Your turn!");
@@ -717,7 +727,7 @@ public class MatchController {
                 resetButtons();
                 ok2 = 0;
 
-                if(player.getEntryMoney() <= 100){
+                if(player.getEntryMoney() <= getRaiseMoney()){
                     butonInvizibil(Raise);
                 }
 
@@ -741,11 +751,11 @@ public class MatchController {
                         player.setEntryMoney(player.getEntryMoney() + match.getPot());
                         continue;
                     } else if (todo == 2) {
-                        botRaise(50);
+                        botRaise((10* entry.getEntryPlay())/100);
                     } else if (todo == 3) {
-                        botRaise(100);
+                        botRaise((15* entry.getEntryPlay())/100);
                     } else if (todo == 4) {
-                        botRaise(150);
+                        botRaise((20* entry.getEntryPlay())/100);
                     }
                 }
 
@@ -771,24 +781,24 @@ public class MatchController {
                             wait(1000);
                             setBotaction("Your turn!");
                         } else if (todo == 1) {
-                            botRaise(50);
+                            botRaise((10* entry.getEntryPlay())/100);
                         } else if (todo == 2) {
-                            botRaise(100);
+                            botRaise((15* entry.getEntryPlay())/100);
                         } else if (todo == 3) {
-                            botRaise(150);
+                            botRaise((20* entry.getEntryPlay())/100);
                         }
                     }else if(raise == true) {
-                        player.betMoney(100);
+                        player.betMoney(getRaiseMoney());
                         setBani(player.getEntryMoney());
-                        match.setPot(match.getPot() + 100);
+                        match.setPot(match.getPot() + getRaiseMoney());
                         setPot(match.getPot());
                         butoaneI();
                         todo = rand.nextInt(2);
                         if (todo == 0) {
-                            if(bot.getEntryMoney() > 100) {
+                            if(bot.getEntryMoney() > getRaiseMoney()) {
                                 setBotaction("Call!");
-                                bot.betMoney(100);
-                                match.setPot(match.getPot() + 100);
+                                bot.betMoney(getRaiseMoney());
+                                match.setPot(match.getPot() + getRaiseMoney());
                                 setPot(match.getPot());
                                 wait(1000);
                                 setBotaction("Your turn!");
@@ -848,7 +858,7 @@ public class MatchController {
             resetButtons();
             ok2 = 0;
 
-            if(player.getEntryMoney() <= 100){
+            if(player.getEntryMoney() <= getRaiseMoney()){
                 butonInvizibil(Raise);
             }
 
@@ -872,11 +882,11 @@ public class MatchController {
                     player.setEntryMoney(player.getEntryMoney() + match.getPot());
                     continue;
                 } else if (todo == 2) {
-                    botRaise(50);
+                    botRaise((10* entry.getEntryPlay())/100);
                 } else if (todo == 3) {
-                    botRaise(100);
+                    botRaise((15* entry.getEntryPlay())/100);
                 } else if (todo == 4) {
-                    botRaise(150);
+                    botRaise((20* entry.getEntryPlay())/100);
                 }
             }
 
@@ -901,25 +911,25 @@ public class MatchController {
                         wait(1000);
                         setBotaction("Your turn!");
                     } else if (todo == 1) {
-                        botRaise(50);
+                        botRaise((10* entry.getEntryPlay())/100);
                     } else if (todo == 2) {
-                        botRaise(100);
+                        botRaise((15* entry.getEntryPlay())/100);
                     } else if (todo == 3) {
-                        botRaise(150);
+                        botRaise((20* entry.getEntryPlay())/100);
                     }
                 }else if(raise == true) {
-                    player.betMoney(100);
+                    player.betMoney(getRaiseMoney());
                     setBani(player.getEntryMoney());
-                    match.setPot(match.getPot() + 100);
+                    match.setPot(match.getPot() + getRaiseMoney());
                     setPot(match.getPot());
                     butoaneI();
                     butoaneI();
                     todo = rand.nextInt(2);
                     if (todo == 0) {
-                        if(bot.getEntryMoney() > 100) {
+                        if(bot.getEntryMoney() > getRaiseMoney()) {
                             setBotaction("Call!");
-                            bot.betMoney(100);
-                            match.setPot(match.getPot() + 100);
+                            bot.betMoney(getRaiseMoney());
+                            match.setPot(match.getPot() + getRaiseMoney());
                             setPot(match.getPot());
                             wait(1000);
                             setBotaction("Your turn!");
@@ -1026,9 +1036,15 @@ public class MatchController {
                 if(player.getEntryMoney() != 0) {
                     endgame.setText("You won the game!");
                     endgame.setVisible(true);
+                    img = new Image(getClass().getResourceAsStream("/img/StartButton.png"));
+                    endImg.setImage(img);
+                    endButton.setVisible(true);
                 }else{
                     endgame.setText("You lost the game!");
                     endgame.setVisible(true);
+                    img = new Image(getClass().getResourceAsStream("/img/StartButton.png"));
+                    endImg.setImage(img);
+                    endButton.setVisible(true);
                 }
             }
         });
@@ -1053,9 +1069,9 @@ public class MatchController {
 
         public void start() throws IOException, InterruptedException {
 
-            player.setEntryMoney(500);
-            bot.setEntryMoney(500);
-            setBlindAmount(50);
+            player.setEntryMoney(entry.getEntryPlay());
+            bot.setEntryMoney(entry.getEntryPlay());
+            setBlindAmount(getBlindAmount());
             toStart.setVisible(false);
             slabel.setVisible(false);
             player.setBlind(false);
