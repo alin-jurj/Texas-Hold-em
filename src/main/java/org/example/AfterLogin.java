@@ -32,6 +32,7 @@ public class AfterLogin {
     @FXML
     private ChoiceBox<Integer> entrySpectate = new ChoiceBox<>();
     public void initialize(){
+        App.resizeStage(700, 480);
         img = new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
         bimg.setImage(img);
 
@@ -41,8 +42,8 @@ public class AfterLogin {
         img = new Image(getClass().getResourceAsStream("/img/spectate.png"));
         spectateop.setImage(img);
 
-        img = new Image(getClass().getResourceAsStream("/img/s.png"));
-        donateop.setImage(img);
+        //img = new Image(getClass().getResourceAsStream("/img/s.png"));
+        //donateop.setImage(img);
 
         entrySpectate.setValue(500);
         entryPlay.setValue(500);
@@ -67,7 +68,7 @@ public class AfterLogin {
     }
     public void getChoice(ChoiceBox<Integer> entry){
         entryAmount1 = entry.getValue();
-        entryAmount2=entry.getValue();
+        entryAmount2 = entry.getValue();
     }
     public void Playbutton() throws IOException
     {

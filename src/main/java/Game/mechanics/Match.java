@@ -39,6 +39,10 @@ public class Match {
         table[4] = deck.giveCard();
     }
 
+    public void shuffle(){
+        deck.resetMarked();
+    }
+
     public void evaluate(Player player){
         Pairs pairs = new Pairs();
         int j = 0;

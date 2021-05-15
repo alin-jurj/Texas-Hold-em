@@ -107,14 +107,10 @@ public class Pairs {
     }
 
     public String fourOfaKind(){
-        int i;
-        int cnt = 0;
-        for(i = 0; i<6; i++){
-            if(ranks[i+1] == ranks[i])
-                cnt++;
-        }
-
-        if(cnt == 4)
+        if(ranks[0] == ranks[1] && ranks [1] == ranks[2] && ranks[2] == ranks[3]
+                || ranks[1] == ranks[2] && ranks [2] == ranks[3] && ranks[3] == ranks[4]
+                || ranks[2] == ranks[3] && ranks [3] == ranks[4] && ranks[4] == ranks[5]
+                || ranks[3] == ranks[4] && ranks [4] == ranks[5] && ranks[5] == ranks[6])
             return "Four of a kind";
         else return null;
     }

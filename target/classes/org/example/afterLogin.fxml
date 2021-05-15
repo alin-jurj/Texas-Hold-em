@@ -31,7 +31,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="134.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#Playbutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="PLAY" textFill="#f8f5f5" />
+                  <Button mnemonicParsing="false" onAction="#Playbutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="PLAY" textFill="#f8f5f5" > </Button>
                </children>
             </HBox>
          </children>
@@ -52,7 +52,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="40.0" prefWidth="134.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#Spectatebutton" prefHeight="29.0" prefWidth="86.0" style="-fx-background-color: BLUE;" text="SPECTATE" textFill="#f8f7f7" />
+                  <Button mnemonicParsing="false" onAction="#Spectatebutton" prefHeight="29.0" prefWidth="86.0" style="-fx-background-color: BLUE;" text="SPECTATE" textFill="#f8f7f7" > </Button>
                </children>
             </HBox>
          </children>
@@ -61,12 +61,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="46.0" prefWidth="186.0">
                <children>
-                  <ImageView fx:id="Donateimage" fitHeight="26.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="donateop" fitHeight="26.0" fitWidth="142.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="28.0" prefWidth="155.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#Playbutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="DONATE" textFill="#f8f5f5" />
+                  <Button mnemonicParsing="false" onAction="#Playbutton" prefHeight="29.0" prefWidth="92.0" style="-fx-background-color: Blue;" text="DONATE" textFill="#f8f5f5"> </Button>
                </children>
             </HBox>
          </children>
