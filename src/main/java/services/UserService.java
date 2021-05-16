@@ -12,6 +12,7 @@ import model.User;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.dizitart.no2.filters.Filters.eq;
@@ -20,9 +21,10 @@ import static services.FileSystemService.getPathToFile;
 public class UserService {
 
     private static ObjectRepository<User> userRepository;
-
+    private static Nitrite database;
     public static void initDatabase() {
-        Nitrite database = Nitrite.builder()
+        FileSystemService.initDirectory();
+        database = Nitrite.builder()
                 .filePath(getPathToFile("Texas Hold'em.db").toFile())
                 .openOrCreate("test", "test");
 
@@ -36,6 +38,10 @@ public class UserService {
         checkPasswordLength(password, confirmpassword);
         checkConfirmPassword(password, confirmpassword);
         userRepository.insert(new User(username, encodePassword(username, password), encodePassword(username, confirmpassword) ,role, email, 100000, 0, "member"));
+    }
+
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
     }
 
     public static String checkCredentials(String username, String password) throws CompleteLoginDataException {
@@ -83,7 +89,7 @@ public class UserService {
             throw new CompleteLoginDataException();
     }
 
-    private static String encodePassword(String salt, String password) {
+    static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
@@ -169,6 +175,8 @@ public class UserService {
         }
         return null;
     }
+
+    public static Nitrite getDatabase() { return database; }
 
 
 

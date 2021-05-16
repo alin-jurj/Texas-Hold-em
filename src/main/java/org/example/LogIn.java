@@ -51,6 +51,7 @@ public class LogIn {
             if (UserService.checkCredentials(usernameField.getText(), passwordField.getText()).equals("Player")){
                 wrongLogIn.setText("You have logged in successfully!");
                 username = usernameField.getText();
+
                 if(UserService.getStatus(username).equals("VIP")){
                     UserService.giveUserMoney(username, 10000);
                 }else if(UserService.getStatus(username).equals(username)){
