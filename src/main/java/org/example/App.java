@@ -55,8 +55,6 @@ public class App extends Application {
         stg.setHeight(h);
         stg.setWidth(w);
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }

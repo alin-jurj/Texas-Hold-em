@@ -17,28 +17,29 @@
       </ImageView>
       <ImageView fx:id="clk" fitHeight="149.0" fitWidth="149.0" layoutX="254.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
       </ImageView>
-      <TextField fx:id="usernameField" layoutX="255.0" layoutY="281.0" promptText="Username">
+      <TextField id="Registerusername" fx:id="usernameField" layoutX="255.0" layoutY="281.0" promptText="Username">
          <opaqueInsets>
             <Insets top="5.0" />
          </opaqueInsets>
       </TextField>
-      <PasswordField fx:id="passwordField" layoutX="254.0" layoutY="320.0" promptText="Password">
+      <PasswordField id="Registerpassword" fx:id="passwordField" layoutX="254.0" layoutY="320.0" promptText="Password">
          <opaqueInsets>
             <Insets top="5.0" />
          </opaqueInsets>
       </PasswordField>
-      <PasswordField fx:id="confirmpasswordField" layoutX="255.0" layoutY="360.0" promptText="Confirm password">
+      <PasswordField id="Registerconfirmpassword" fx:id="confirmpasswordField" layoutX="255.0" layoutY="360.0" promptText="Confirm password">
          <opaqueInsets>
             <Insets top="5.0" />
          </opaqueInsets>
       </PasswordField>
-      <TextField fx:id="email" layoutX="255.0" layoutY="239.0" promptText="Email">
+      <TextField id="Registeremail" fx:id="email" layoutX="255.0" layoutY="239.0" promptText="Email">
          <opaqueInsets>
             <Insets top="5.0" />
          </opaqueInsets>
       </TextField>
-      <Label fx:id="registrationMessage" layoutX="257.0" layoutY="385.0" prefHeight="17.0" prefWidth="143.0" textFill="RED" />
-      <Button fx:id="button_reg" layoutX="287.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: Blue;" text="Register" textFill="#eeeaea" />
+      <Label id="Registermessage" fx:id="registrationMessage" layoutX="257.0" layoutY="385.0" prefHeight="17.0" prefWidth="221.0" textFill="RED" />
+      <Button id="Registerbutton" fx:id="button_reg" layoutX="287.0" layoutY="405.0" mnemonicParsing="false" onAction="#handleRegisterAction" prefHeight="25.0" prefWidth="83.0" style="-fx-background-color: Blue;" text="Register" textFill="#eeeaea" />
       <ChoiceBox fx:id="role" layoutX="255.0" layoutY="207.0" prefWidth="150.0" />
+      <Button id="Registerbutton" layoutX="557.0" layoutY="24.0" mnemonicParsing="false" onAction="#button_back" prefHeight="25.0" prefWidth="59.0" style="-fx-background-color: Blue;" text="LogIn" textFill="#eeeaea" />
    </children>
 </AnchorPane>

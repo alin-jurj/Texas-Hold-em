@@ -16,7 +16,7 @@
       <TextField fx:id="usernameField" id="LoginUsername" layoutX="356.0" layoutY="208.0" promptText="Username" />
       <PasswordField fx:id="passwordField" id="LoginPassword" layoutX="356.0" layoutY="251.0" promptText="Password" />
       <Button fx:id="button_log" id="Loginbutton" layoutX="389.0" layoutY="299.0" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: blue;" text="Log In" textFill="#f8f5f5" />
-      <Button fx:id="button_reg" layoutX="390.0" layoutY="346.0" mnemonicParsing="false" onAction="#userRegister" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: blue;" text="Register" textFill="#f8f7f7" />
+      <Button fx:id="button_reg" id="Registerbutton" layoutX="390.0" layoutY="346.0" mnemonicParsing="false" onAction="#userRegister" prefHeight="30.0" prefWidth="86.0" style="-fx-background-color: blue;" text="Register" textFill="#f8f7f7" />
       <Ellipse fill="#249424" layoutX="424.0" layoutY="155.0" radiusX="43.0" radiusY="35.0" stroke="#171717" strokeType="INSIDE" />
       <Circle fill="#249424" layoutX="424.0" layoutY="100.0" radius="20.0" stroke="#171717" strokeType="INSIDE" />
       <Label fx:id="wrongLogIn" id="Loginwrong" layoutX="357.0" layoutY="190.0" prefHeight="18.0" prefWidth="176.0" textFill="RED" />
