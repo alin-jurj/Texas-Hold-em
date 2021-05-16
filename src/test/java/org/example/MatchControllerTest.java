@@ -31,6 +31,11 @@ class MatchControllerTest {
         UserService.initDatabase();
     }
 
+    @AfterEach
+    void closeDatabase() throws Exception{
+        UserService.getDatabase().close();
+    }
+
     @Start
     void start(Stage primaryStage) throws Exception {
         App.setStage(primaryStage);

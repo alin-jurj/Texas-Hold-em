@@ -38,7 +38,7 @@ class AdminControllerTest {
     @BeforeEach
     void setUp() throws Exception {
         FileSystemService.APPLICATION_FOLDER = ".test-registration-example";
-        //cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
+        cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
     }
 
