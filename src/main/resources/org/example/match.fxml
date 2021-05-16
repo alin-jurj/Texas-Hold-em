@@ -59,7 +59,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <ImageView fx:id="toStart" fitHeight="150.0" fitWidth="200.0" layoutX="276.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true"> </ImageView>
+      <ImageView fx:id="toStart" id="startButton" fitHeight="150.0" fitWidth="200.0" layoutX="276.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true"> </ImageView>
       <ImageView fx:id="blindop" fitHeight="48.0" fitWidth="80.0" layoutX="521.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true" visible="false"> </ImageView>
       <ImageView fx:id="blindme" fitHeight="48.0" fitWidth="80.0" layoutX="539.0" layoutY="505.0" pickOnBounds="true" preserveRatio="true" visible="false"> </ImageView>
       <Label fx:id="slabel" layoutX="35.0" layoutY="127.0" prefHeight="60.0" prefWidth="251.0" text="Press the watch to start" textFill="#0ee3b8">
@@ -69,7 +69,7 @@
       </Label>
       <Button fx:id="startButton" blendMode="MULTIPLY" layoutX="275.0" layoutY="81.0" onAction="#start" mnemonicParsing="false" opacity="0.0" prefHeight="150.0" prefWidth="156.0" />
       <ImageView fx:id="endImg" fitHeight="150.0" fitWidth="200.0" layoutX="450.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true"> </ImageView>
-      <Button fx:id="endButton" blendMode="MULTIPLY" layoutX="450.0" layoutY="300.0" onAction="#EndGame" mnemonicParsing="false" opacity="0.0" prefHeight="150.0" prefWidth="156.0" />
+      <Button fx:id="endButton" id="endButton" blendMode="MULTIPLY" layoutX="450.0" layoutY="300.0" onAction="#EndGame" mnemonicParsing="false" opacity="0.0" prefHeight="150.0" prefWidth="156.0" />
       <Label fx:id="winner" layoutX="600.0" layoutY="550.0" prefHeight="48.0" prefWidth="270.0" textFill="#0ee3b8">
          <font>
             <Font size="20.0" />
@@ -90,7 +90,7 @@
             <Font size="30.0" />
          </font>
       </Label>
-      <Label fx:id="endgame" layoutX="111.0" layoutY="180.0" prefHeight="161.0" prefWidth="818.0" textFill="#2771da" alignment="CENTER">
+      <Label fx:id="endgame" id="matchresult" layoutX="111.0" layoutY="180.0" prefHeight="161.0" prefWidth="818.0" textFill="#2771da" alignment="CENTER">
          <font>
             <Font size="72.0" />
          </font>

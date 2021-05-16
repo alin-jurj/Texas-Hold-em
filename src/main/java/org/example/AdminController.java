@@ -55,6 +55,7 @@ public class AdminController {
     }
 
     public void Close() throws IOException {
-        App.setRoot("LogIn");
+        App m = new App();
+        m.changeScene("LogIn.fxml");
     }
 }

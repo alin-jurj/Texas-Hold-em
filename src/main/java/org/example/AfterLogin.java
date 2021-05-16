@@ -10,6 +10,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import model.User;
 import services.UserService;
 
 import java.io.IOException;
@@ -38,6 +39,7 @@ public class AfterLogin {
     private ChoiceBox<Integer> entrySpectate = new ChoiceBox<>();
     private UserService userr;
     private static String username;
+
     public void initialize(){
         App.resizeStage(700, 480);
         img = new Image(getClass().getResourceAsStream("/img/Loginimage.png"));
