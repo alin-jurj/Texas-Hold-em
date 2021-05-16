@@ -29,6 +29,7 @@ import org.testfx.framework.junit5.Start;
 import java.awt.*;
 import java.io.IOException;
 
+import static org.apache.commons.io.FileUtils.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,7 +38,7 @@ class AdminControllerTest {
     @BeforeEach
     void setUp() throws Exception {
         FileSystemService.APPLICATION_FOLDER = ".test-registration-example";
-        //FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
+        //cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
     }
 
@@ -127,5 +128,12 @@ class AdminControllerTest {
         robot.write("500");
         robot.clickOn("#adminConfirm");
         assertThat(robot.lookup("#adminError").queryLabeled().getText()).isEqualTo("Succesful transaction!");
+    }
+
+    @Test
+    void testClose(FxRobot robot){
+        robot.clickOn("#adminClose");
+
+        assertThat(robot.lookup("#Loginbutton").queryButton().getId().equals("Loginbutton"));
     }
 }
