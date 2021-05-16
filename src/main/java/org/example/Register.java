@@ -85,5 +85,9 @@ public class Register {
             registrationMessage.setText("Password must contain at least 6 characters!");
         }
     }
+    @FXML
+    void button_back() throws IOException{
+        App.setRoot("LogIn");
+    }
 
 }

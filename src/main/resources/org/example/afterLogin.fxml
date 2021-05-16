@@ -23,7 +23,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="529.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: Blue;" text="Log out" textFill="#f8f7f7" />
+      <Button id="logout" layoutX="529.0" layoutY="14.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: Blue;" text="Log out" textFill="#f8f7f7" />
       <VBox alignment="CENTER" layoutX="184.0" layoutY="155.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="240.0" prefWidth="134.0">
          <children>
             <ImageView fx:id="playop" fitHeight="109.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
