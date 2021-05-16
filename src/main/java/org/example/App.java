@@ -24,7 +24,6 @@ public class App extends Application {
     public void start(Stage primaryStage) throws IOException {
         stg=primaryStage;
         scene = new Scene(loadFXML("LogIn"));
-        initDirectory();
         UserService.initDatabase();
         primaryStage.setResizable(false);
         primaryStage.setTitle("Texas Hold'em");
@@ -32,13 +31,10 @@ public class App extends Application {
         primaryStage.show();
     }
 
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            ((Path) applicationHomePath).toFile().mkdirs();
+
+    public static void setStage(Stage stage){
+         stg = stage;
     }
-
-
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
@@ -58,8 +54,6 @@ public class App extends Application {
         stg.setHeight(h);
         stg.setWidth(w);
     }
-
-
     public static void main(String[] args) {
         launch(args);
     }

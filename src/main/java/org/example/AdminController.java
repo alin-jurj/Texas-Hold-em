@@ -41,12 +41,12 @@ public class AdminController {
         if(username.getText().isEmpty()){
             transaction.setText("Introduce a username!");
         }
-        if(suma.getText().isEmpty()){
+        else if(suma.getText().isEmpty()){
             transaction.setText("Introduce a valid value!");
         }
-        if(!isInt(suma.getText())){
+        else if(!isInt(suma.getText())){
             transaction.setText("Introduce a valid value!");
-        }if(!UserService.checkUserExist(username.getText())){
+        }else if(!UserService.checkUserExist(username.getText())){
             transaction.setText("There is no user with this username!");
         }else{
             UserService.giveUserMoney(username.getText(), Integer.parseInt(suma.getText()));
